@@ -3,11 +3,10 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>GTA VI — Countdown</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;700;900&display=swap" rel="stylesheet">
+<title>GTA VI Countdown</title>
+<meta name="description" content="Live countdown to Grand Theft Auto VI. November 19, 2026.">
 <style>
+  /* ===== Pricedown — the GTA logo font ===== */
   @font-face {
     font-family: 'Pricedown';
     src: url('https://db.onlinewebfonts.com/t/4ab3f7c54369aebbf5ddb43dcc14fb70.woff2') format('woff2'),
@@ -19,158 +18,143 @@
   }
 
   :root {
-    --pink: #ff2e93;
-    --pink-glow: #ff58a6;
-    --cyan: #00e5ff;
-    --yellow: #ffd400;
-    --bg-0: #0a0014;
-    --text: #fff7ff;
-    --muted: #b89ad6;
-    --card: rgba(255, 46, 147, 0.06);
-    --card-border: rgba(255, 46, 147, 0.35);
+    --vc-pink: #ff5fa0;
+    --vc-blue: #6dd5ff;
+    --vc-black: #000000;
+    --text: #ffffff;
+    --muted: #d4d4dc;
+    --card-bg: rgba(0, 0, 0, 0.65);
+    --card-border: rgba(255, 95, 160, 0.5);
   }
 
   * { box-sizing: border-box; margin: 0; padding: 0; }
 
   html, body {
-    background: var(--bg-0);
     color: var(--text);
-    font-family: 'Inter', system-ui, sans-serif;
+    font-family: Helvetica, Arial, sans-serif;
     min-height: 100vh;
-    overflow-x: hidden;
     -webkit-font-smoothing: antialiased;
+    line-height: 1.5;
   }
 
+  /* ===== Full-page background image ===== */
+  body {
+    background-image: url('https://www.gtavice.net/content/images/rockstar-games-official-grand-theft-auto-vi-artwork-with-gta-logo.jpg?etag=6577146a');
+    background-size: cover;
+    background-position: center top;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-color: #0d0d12;
+  }
+
+  /* Dark overlay for readability */
   body::before {
     content: '';
     position: fixed;
     inset: 0;
-    background:
-      radial-gradient(ellipse at 20% 0%, rgba(255, 46, 147, 0.45) 0%, transparent 55%),
-      radial-gradient(ellipse at 80% 10%, rgba(255, 212, 0, 0.25) 0%, transparent 50%),
-      radial-gradient(ellipse at 50% 100%, rgba(0, 229, 255, 0.18) 0%, transparent 60%),
-      linear-gradient(180deg, #1a0033 0%, #0a0014 70%, #000 100%);
-    z-index: -2;
-  }
-
-  body::after {
-    content: '';
-    position: fixed;
-    inset: 0;
-    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.5'/%3E%3C/svg%3E");
-    opacity: 0.08;
+    background: linear-gradient(180deg,
+      rgba(0, 0, 0, 0.4) 0%,
+      rgba(0, 0, 0, 0.55) 50%,
+      rgba(0, 0, 0, 0.85) 100%);
+    z-index: 0;
     pointer-events: none;
-    z-index: -1;
-    mix-blend-mode: overlay;
   }
 
   .wrap {
-    max-width: 1100px;
+    position: relative;
+    z-index: 1;
+    max-width: 1000px;
     margin: 0 auto;
-    padding: 60px 24px 80px;
+    padding: 50px 24px 60px;
   }
 
+  /* ===== Hero / Logo ===== */
   .brand {
     text-align: center;
-    margin-bottom: 50px;
-    animation: fadeUp 0.9s ease-out;
+    margin-bottom: 60px;
   }
 
   .brand .small {
-    font-family: 'Anton', sans-serif;
-    letter-spacing: 0.4em;
-    font-size: 14px;
-    color: var(--muted);
-    margin-bottom: 14px;
+    letter-spacing: 0.35em;
+    font-size: 12px;
+    color: #fff;
+    margin-bottom: 18px;
     text-transform: uppercase;
+    font-weight: 700;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.9);
   }
 
   .logo {
-    font-family: 'Pricedown', 'Anton', sans-serif;
-    font-size: clamp(80px, 16vw, 200px);
-    line-height: 0.85;
+    font-family: 'Pricedown', Helvetica, sans-serif;
+    font-size: clamp(90px, 17vw, 220px);
+    line-height: 0.9;
     letter-spacing: 0.02em;
-    background: linear-gradient(180deg, #ff8ec4 0%, var(--pink) 45%, #b3005f 100%);
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
+    color: var(--vc-pink);
+    -webkit-text-stroke: 3px var(--vc-black);
     text-shadow:
-      0 0 40px rgba(255, 46, 147, 0.5),
-      0 0 80px rgba(255, 46, 147, 0.25);
-    filter: drop-shadow(0 4px 0 #6b0033);
+      4px 4px 0 var(--vc-black),
+      0 0 50px rgba(0, 0, 0, 0.8);
   }
 
   .tagline {
-    font-family: 'Anton', sans-serif;
     letter-spacing: 0.3em;
-    font-size: clamp(14px, 1.6vw, 20px);
-    color: var(--cyan);
-    margin-top: 8px;
+    font-size: 14px;
+    color: var(--vc-blue);
+    margin-top: 20px;
     text-transform: uppercase;
-    text-shadow: 0 0 20px rgba(0, 229, 255, 0.6);
+    font-weight: 700;
+    text-shadow: 1px 1px 4px rgba(0,0,0,0.9);
   }
 
+  /* ===== Countdown ===== */
   .countdown {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: 16px;
-    margin: 40px 0 30px;
+    gap: 14px;
+    margin: 40px 0 24px;
   }
 
   .unit {
-    background: linear-gradient(180deg, rgba(42, 0, 68, 0.7), rgba(10, 0, 20, 0.9));
+    background: var(--card-bg);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
     border: 1px solid var(--card-border);
-    border-radius: 14px;
-    padding: 26px 12px 20px;
+    border-radius: 10px;
+    padding: 24px 10px 18px;
     text-align: center;
-    position: relative;
-    overflow: hidden;
-    box-shadow:
-      inset 0 1px 0 rgba(255, 255, 255, 0.08),
-      0 12px 40px rgba(255, 46, 147, 0.15);
-    transition: transform 0.25s ease;
-  }
-
-  .unit:hover { transform: translateY(-3px); }
-
-  .unit::before {
-    content: '';
-    position: absolute;
-    top: 0; left: 0; right: 0;
-    height: 2px;
-    background: linear-gradient(90deg, transparent, var(--pink), transparent);
   }
 
   .num {
-    font-family: 'Pricedown', 'Anton', sans-serif;
-    font-size: clamp(48px, 8vw, 96px);
+    font-family: 'Pricedown', Helvetica, sans-serif;
+    font-size: clamp(44px, 7vw, 80px);
     line-height: 1;
-    color: #fff;
-    text-shadow:
-      0 0 20px rgba(255, 46, 147, 0.8),
-      0 0 40px rgba(255, 46, 147, 0.4);
+    color: var(--vc-pink);
+    -webkit-text-stroke: 2px var(--vc-black);
+    text-shadow: 2px 2px 0 var(--vc-black);
     font-variant-numeric: tabular-nums;
   }
 
   .label {
-    font-family: 'Anton', sans-serif;
     letter-spacing: 0.25em;
-    font-size: clamp(10px, 1.3vw, 13px);
-    color: var(--muted);
-    margin-top: 10px;
+    font-size: 11px;
+    color: #fff;
+    margin-top: 12px;
     text-transform: uppercase;
+    font-weight: 700;
   }
 
   .release-info {
     text-align: center;
-    font-family: 'Anton', sans-serif;
-    letter-spacing: 0.25em;
-    color: var(--yellow);
-    font-size: clamp(13px, 1.4vw, 16px);
+    letter-spacing: 0.15em;
+    color: var(--vc-blue);
+    font-size: 13px;
     margin-bottom: 70px;
-    text-shadow: 0 0 20px rgba(255, 212, 0, 0.4);
+    text-transform: uppercase;
+    font-weight: 700;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.9);
   }
 
+  /* ===== News section ===== */
   .news-head {
     display: flex;
     align-items: center;
@@ -179,118 +163,98 @@
   }
 
   .news-head h2 {
-    font-family: 'Pricedown', 'Anton', sans-serif;
+    font-family: 'Pricedown', Helvetica, sans-serif;
     font-size: clamp(36px, 5vw, 56px);
-    color: #fff;
-    text-shadow: 0 0 25px rgba(0, 229, 255, 0.5);
+    color: var(--vc-pink);
+    -webkit-text-stroke: 2px var(--vc-black);
+    text-shadow: 3px 3px 0 var(--vc-black);
     letter-spacing: 0.02em;
   }
 
   .news-head .line {
     flex: 1;
     height: 2px;
-    background: linear-gradient(90deg, var(--pink), transparent);
+    background: linear-gradient(90deg, var(--vc-pink), transparent);
   }
 
   .news-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
-    gap: 18px;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 16px;
   }
 
   .news {
-    background: var(--card);
-    backdrop-filter: blur(8px);
+    background: var(--card-bg);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
     border: 1px solid var(--card-border);
-    border-radius: 14px;
-    padding: 24px;
+    border-radius: 10px;
+    padding: 22px;
     text-decoration: none;
     color: inherit;
     display: flex;
     flex-direction: column;
-    gap: 12px;
-    transition: all 0.25s ease;
-    position: relative;
-    overflow: hidden;
+    gap: 10px;
+    transition: border-color 0.2s, transform 0.2s;
   }
 
   .news:hover {
-    transform: translateY(-4px);
-    border-color: var(--pink);
-    box-shadow: 0 16px 40px rgba(255, 46, 147, 0.25);
-  }
-
-  .news::before {
-    content: '';
-    position: absolute;
-    top: 0; left: 0;
-    width: 4px; height: 100%;
-    background: linear-gradient(180deg, var(--pink), var(--cyan));
+    border-color: var(--vc-pink);
+    transform: translateY(-3px);
   }
 
   .badge {
-    font-family: 'Anton', sans-serif;
-    letter-spacing: 0.2em;
-    font-size: 11px;
-    color: var(--pink-glow);
+    letter-spacing: 0.18em;
+    font-size: 10px;
+    color: var(--vc-pink);
     text-transform: uppercase;
+    font-weight: 700;
   }
 
   .news h3 {
-    font-family: 'Anton', sans-serif;
-    font-size: 20px;
-    line-height: 1.25;
+    font-size: 17px;
+    line-height: 1.35;
     color: #fff;
-    letter-spacing: 0.01em;
+    font-weight: 700;
   }
 
   .news p {
     color: var(--muted);
     font-size: 14px;
-    line-height: 1.5;
+    line-height: 1.55;
   }
 
   .news .src {
     font-size: 12px;
-    color: var(--cyan);
+    color: var(--vc-blue);
     margin-top: auto;
     letter-spacing: 0.05em;
+    font-weight: 600;
   }
 
+  /* ===== Footer ===== */
   footer {
     text-align: center;
     margin-top: 60px;
-    color: var(--muted);
-    font-size: 12px;
+    color: #fff;
+    font-size: 11px;
     letter-spacing: 0.15em;
     text-transform: uppercase;
-  }
-
-  @keyframes fadeUp {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
-
-  .countdown { animation: fadeUp 0.9s ease-out 0.15s both; }
-  .release-info { animation: fadeUp 0.9s ease-out 0.3s both; }
-  .news-head { animation: fadeUp 0.9s ease-out 0.45s both; }
-  .news-grid { animation: fadeUp 0.9s ease-out 0.6s both; }
-
-  .num.tick { animation: tick 0.4s ease-out; }
-  @keyframes tick {
-    0% { transform: scale(1); text-shadow: 0 0 20px rgba(255, 46, 147, 0.8); }
-    50% { transform: scale(1.06); text-shadow: 0 0 35px rgba(255, 46, 147, 1), 0 0 60px rgba(255, 46, 147, 0.6); }
-    100% { transform: scale(1); text-shadow: 0 0 20px rgba(255, 46, 147, 0.8); }
+    font-weight: 600;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.9);
   }
 
   @media (max-width: 600px) {
     .countdown { grid-template-columns: repeat(2, 1fr); }
-    .wrap { padding: 40px 16px 60px; }
+    .wrap { padding: 30px 16px 40px; }
+    .logo { -webkit-text-stroke-width: 2px; }
+    body { background-attachment: scroll; }
   }
 </style>
 </head>
 <body>
   <main class="wrap">
+
     <header class="brand">
       <div class="small">Rockstar Games Presents</div>
       <h1 class="logo">GTA&nbsp;VI</h1>
@@ -343,7 +307,6 @@
   var elH = document.getElementById('h');
   var elM = document.getElementById('m');
   var elS = document.getElementById('s');
-  var lastSec = -1;
 
   function pad(n) { return (n < 10 ? '0' : '') + n; }
 
@@ -372,13 +335,6 @@
     elH.textContent = pad(hours);
     elM.textContent = pad(mins);
     elS.textContent = pad(secs);
-
-    if (secs !== lastSec) {
-      elS.classList.remove('tick');
-      void elS.offsetWidth;
-      elS.classList.add('tick');
-      lastSec = secs;
-    }
   }
 
   tick();
