@@ -6,16 +6,13 @@
 <title>GTA VI — Countdown</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<!--
-  Pricedown is the iconic GTA logo font. It's not on Google Fonts, so we load it from a CDN that mirrors it.
-  Inter and Anton are the supporting fonts (HUD-ish numerics + bold display).
--->
 <link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;700;900&display=swap" rel="stylesheet">
 <style>
-  /* ---------- Pricedown (GTA logo font) via CDN ---------- */
   @font-face {
     font-family: 'Pricedown';
-    src: url('https://cdn.jsdelivr.net/gh/MaximilianGT500/PricedownFont@main/pricedown.ttf') format('truetype');
+    src: url('https://db.onlinewebfonts.com/t/4ab3f7c54369aebbf5ddb43dcc14fb70.woff2') format('woff2'),
+         url('https://db.onlinewebfonts.com/t/4ab3f7c54369aebbf5ddb43dcc14fb70.woff') format('woff'),
+         url('https://db.onlinewebfonts.com/t/4ab3f7c54369aebbf5ddb43dcc14fb70.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
     font-display: swap;
@@ -27,8 +24,6 @@
     --cyan: #00e5ff;
     --yellow: #ffd400;
     --bg-0: #0a0014;
-    --bg-1: #16002a;
-    --bg-2: #2a0044;
     --text: #fff7ff;
     --muted: #b89ad6;
     --card: rgba(255, 46, 147, 0.06);
@@ -46,7 +41,6 @@
     -webkit-font-smoothing: antialiased;
   }
 
-  /* ---------- Background: vice-city sunset gradient + grain ---------- */
   body::before {
     content: '';
     position: fixed;
@@ -70,14 +64,12 @@
     mix-blend-mode: overlay;
   }
 
-  /* ---------- Layout ---------- */
   .wrap {
     max-width: 1100px;
     margin: 0 auto;
     padding: 60px 24px 80px;
   }
 
-  /* ---------- Header / Logo ---------- */
   .brand {
     text-align: center;
     margin-bottom: 50px;
@@ -118,7 +110,6 @@
     text-shadow: 0 0 20px rgba(0, 229, 255, 0.6);
   }
 
-  /* ---------- Countdown ---------- */
   .countdown {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
@@ -180,7 +171,6 @@
     text-shadow: 0 0 20px rgba(255, 212, 0, 0.4);
   }
 
-  /* ---------- News section ---------- */
   .news-head {
     display: flex;
     align-items: center;
@@ -267,7 +257,6 @@
     letter-spacing: 0.05em;
   }
 
-  /* ---------- Footer ---------- */
   footer {
     text-align: center;
     margin-top: 60px;
@@ -277,7 +266,6 @@
     text-transform: uppercase;
   }
 
-  /* ---------- Animations ---------- */
   @keyframes fadeUp {
     from { opacity: 0; transform: translateY(20px); }
     to { opacity: 1; transform: translateY(0); }
@@ -288,7 +276,6 @@
   .news-head { animation: fadeUp 0.9s ease-out 0.45s both; }
   .news-grid { animation: fadeUp 0.9s ease-out 0.6s both; }
 
-  /* tick pulse on second change */
   .num.tick { animation: tick 0.4s ease-out; }
   @keyframes tick {
     0% { transform: scale(1); text-shadow: 0 0 20px rgba(255, 46, 147, 0.8); }
@@ -310,7 +297,7 @@
       <div class="tagline">Welcome back to Vice City</div>
     </header>
 
-    <section class="countdown" aria-label="Countdown to GTA VI release">
+    <section class="countdown">
       <div class="unit"><div class="num" id="d">--</div><div class="label">Days</div></div>
       <div class="unit"><div class="num" id="h">--</div><div class="label">Hours</div></div>
       <div class="unit"><div class="num" id="m">--</div><div class="label">Minutes</div></div>
@@ -326,81 +313,77 @@
 
     <section class="news-grid">
       <a class="news" href="https://www.gamespot.com/articles/gta-6-fans-are-circling-this-date-for-more-news-but-thats-probably-just-wishful-thinking/1100-6539606/" target="_blank" rel="noopener">
-        <span class="badge">★ Earnings Call</span>
+        <span class="badge">Earnings Call</span>
         <h3>Take-Two May 21 Earnings Call Has Fans Hoping For New GTA VI Details</h3>
         <p>Take-Two's Q4 fiscal year 2026 results drop May 21, with management hosting a conference call where fans hope for fresh GTA VI announcements.</p>
         <span class="src">GameSpot · Apr 24, 2026</span>
       </a>
 
       <a class="news" href="https://gamingarden.com/gta-6-everything-we-know-so-far-updated-april-2026/" target="_blank" rel="noopener">
-        <span class="badge">★ Release Confirmed</span>
-        <h3>November 19 Release Date Holds — Delay Rumors Officially Debunked</h3>
+        <span class="badge">Release Confirmed</span>
+        <h3>November 19 Release Date Holds, Delay Rumors Officially Debunked</h3>
         <p>Recent "broken save system" delay rumors were shut down by Kotaku after direct contact with developers. CEO Strauss Zelnick confirms the date remains on track with marketing kicking off Summer 2026.</p>
         <span class="src">Gaming Arden · Apr 2026</span>
       </a>
 
       <a class="news" href="https://www.gamesradar.com/gta-6-guide/" target="_blank" rel="noopener">
-        <span class="badge">★ Trailer 3 Watch</span>
+        <span class="badge">Trailer 3 Watch</span>
         <h3>Trailer 3 Speculation Heats Up As Rockstar Clears Online Schedule</h3>
-        <p>Rockstar consolidated three weeks of GTA Online updates and PSN database entries linked to GTA VI briefly appeared — fans expect a major reveal between April and June.</p>
+        <p>Rockstar consolidated three weeks of GTA Online updates and PSN database entries linked to GTA VI briefly appeared. Fans expect a major reveal between April and June.</p>
         <span class="src">GamesRadar · Apr 10, 2026</span>
       </a>
     </section>
 
-    <footer>© by YP · Not affiliated with Rockstar Games</footer>
+    <footer>YP · Not affiliated with Rockstar Games</footer>
   </main>
 
 <script>
-  // GTA VI launches Thursday, November 19, 2026 at 00:00 local time of the user's browser.
-  const TARGET = new Date(2026, 10, 19, 0, 0, 0).getTime(); // month is 0-indexed; 10 = November
+  var TARGET = new Date(2026, 10, 19, 0, 0, 0).getTime();
+  var elD = document.getElementById('d');
+  var elH = document.getElementById('h');
+  var elM = document.getElementById('m');
+  var elS = document.getElementById('s');
+  var lastSec = -1;
 
-  const $d = document.getElementById('d');
-  const $h = document.getElementById('h');
-  const $m = document.getElementById('m');
-  const $s = document.getElementById('s');
-
-  let lastSec = -1;
-
-  function pad(n) { return String(n).padStart(2, '0'); }
+  function pad(n) { return (n < 10 ? '0' : '') + n; }
 
   function tick() {
-    const now = Date.now();
-    let diff = TARGET - now;
+    var diff = TARGET - Date.now();
 
     if (diff <= 0) {
-      $d.textContent = '00';
-      $h.textContent = '00';
-      $m.textContent = '00';
-      $s.textContent = '00';
-      document.querySelector('.release-info').textContent = '★ NOW AVAILABLE — GO TO VICE CITY ★';
+      elD.textContent = '00';
+      elH.textContent = '00';
+      elM.textContent = '00';
+      elS.textContent = '00';
+      var info = document.querySelector('.release-info');
+      if (info) info.textContent = 'NOW AVAILABLE - GO TO VICE CITY';
       return;
     }
 
-    const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-    diff -= days * 1000 * 60 * 60 * 24;
-    const hours = Math.floor(diff / (1000 * 60 * 60));
-    diff -= hours * 1000 * 60 * 60;
-    const mins = Math.floor(diff / (1000 * 60));
-    diff -= mins * 1000 * 60;
-    const secs = Math.floor(diff / 1000);
+    var days = Math.floor(diff / 86400000);
+    diff -= days * 86400000;
+    var hours = Math.floor(diff / 3600000);
+    diff -= hours * 3600000;
+    var mins = Math.floor(diff / 60000);
+    diff -= mins * 60000;
+    var secs = Math.floor(diff / 1000);
 
-    $d.textContent = pad(days);
-    $h.textContent = pad(hours);
-    $m.textContent = pad(mins);
-    $s.textContent = pad(secs);
+    elD.textContent = pad(days);
+    elH.textContent = pad(hours);
+    elM.textContent = pad(mins);
+    elS.textContent = pad(secs);
 
-    // pulse the seconds box on every tick
     if (secs !== lastSec) {
-      $s.classList.remove('tick');
-      // force reflow so the animation restarts
-      void $s.offsetWidth;
-      $s.classList.add('tick');
+      elS.classList.remove('tick');
+      void elS.offsetWidth;
+      elS.classList.add('tick');
       lastSec = secs;
     }
   }
 
   tick();
   setInterval(tick, 1000);
+</script>
 <script defer src="/_vercel/insights/script.js"></script>
 </body>
 </html>
