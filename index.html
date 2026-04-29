@@ -6,7 +6,6 @@
 <title>GTA VI Countdown</title>
 <meta name="description" content="Live countdown to Grand Theft Auto VI. November 19, 2026.">
 <style>
-  /* ===== Pricedown — the GTA logo font ===== */
   @font-face {
     font-family: 'Pricedown';
     src: url('https://db.onlinewebfonts.com/t/4ab3f7c54369aebbf5ddb43dcc14fb70.woff2') format('woff2'),
@@ -37,7 +36,6 @@
     line-height: 1.5;
   }
 
-  /* ===== Full-page background image ===== */
   body {
     background-image: url('https://www.gtavice.net/content/images/rockstar-games-official-grand-theft-auto-vi-artwork-with-gta-logo.jpg?etag=6577146a');
     background-size: cover;
@@ -47,16 +45,27 @@
     background-color: #0d0d12;
   }
 
-  /* Dark overlay for readability */
   body::before {
     content: '';
     position: fixed;
     inset: 0;
     background: linear-gradient(180deg,
-      rgba(0, 0, 0, 0.4) 0%,
-      rgba(0, 0, 0, 0.55) 50%,
+      rgba(0, 0, 0, 0.25) 0%,
+      rgba(0, 0, 0, 0.45) 50%,
       rgba(0, 0, 0, 0.85) 100%);
     z-index: 0;
+    pointer-events: none;
+  }
+
+  /* ===== VI logo image — fixed top-right ===== */
+  .vi-logo {
+    position: fixed;
+    top: 24px;
+    right: 24px;
+    width: 200px;
+    height: auto;
+    z-index: 10;
+    filter: drop-shadow(0 4px 20px rgba(0, 0, 0, 0.6));
     pointer-events: none;
   }
 
@@ -68,50 +77,26 @@
     padding: 50px 24px 60px;
   }
 
-  /* ===== Hero / Logo ===== */
   .brand {
     text-align: center;
-    margin-bottom: 60px;
+    margin-top: 50vh;
+    margin-bottom: 30px;
   }
 
   .brand .small {
     letter-spacing: 0.35em;
     font-size: 12px;
     color: #fff;
-    margin-bottom: 18px;
     text-transform: uppercase;
     font-weight: 700;
     text-shadow: 1px 1px 3px rgba(0,0,0,0.9);
   }
 
-  .logo {
-    font-family: 'Pricedown', Helvetica, sans-serif;
-    font-size: clamp(90px, 17vw, 220px);
-    line-height: 0.9;
-    letter-spacing: 0.02em;
-    color: var(--vc-pink);
-    -webkit-text-stroke: 3px var(--vc-black);
-    text-shadow:
-      4px 4px 0 var(--vc-black),
-      0 0 50px rgba(0, 0, 0, 0.8);
-  }
-
-  .tagline {
-    letter-spacing: 0.3em;
-    font-size: 14px;
-    color: var(--vc-blue);
-    margin-top: 20px;
-    text-transform: uppercase;
-    font-weight: 700;
-    text-shadow: 1px 1px 4px rgba(0,0,0,0.9);
-  }
-
-  /* ===== Countdown ===== */
   .countdown {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 14px;
-    margin: 40px 0 24px;
+    margin: 30px 0 24px;
   }
 
   .unit {
@@ -154,7 +139,6 @@
     text-shadow: 1px 1px 3px rgba(0,0,0,0.9);
   }
 
-  /* ===== News section ===== */
   .news-head {
     display: flex;
     align-items: center;
@@ -232,7 +216,6 @@
     font-weight: 600;
   }
 
-  /* ===== Footer ===== */
   footer {
     text-align: center;
     margin-top: 60px;
@@ -247,18 +230,21 @@
   @media (max-width: 600px) {
     .countdown { grid-template-columns: repeat(2, 1fr); }
     .wrap { padding: 30px 16px 40px; }
-    .logo { -webkit-text-stroke-width: 2px; }
+    .brand { margin-top: 40vh; }
     body { background-attachment: scroll; }
+    .vi-logo { width: 110px; top: 16px; right: 16px; }
   }
 </style>
 </head>
 <body>
+
+  <!-- VI logo, top-right, fixed -->
+  <img class="vi-logo" src="https://www.dafont.com/forum/attach/orig/1/1/1143003.png?1" alt="GTA VI Logo">
+
   <main class="wrap">
 
     <header class="brand">
-      <div class="small">Rockstar Games Presents</div>
-      <h1 class="logo">GTA&nbsp;VI</h1>
-      <div class="tagline">Welcome back to Vice City</div>
+      <div class="small">November 19, 2026</div>
     </header>
 
     <section class="countdown">
